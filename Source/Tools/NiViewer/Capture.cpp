@@ -25,6 +25,7 @@
 #include "Capture.h"
 #include "Device.h"
 #include "Draw.h"
+#include <string>
 
 #if (XN_PLATFORM == XN_PLATFORM_WIN32)
 #include <Commdlg.h>
