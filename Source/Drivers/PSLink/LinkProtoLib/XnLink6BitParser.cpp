@@ -6,8 +6,8 @@ namespace xn
 {
 
 Link6BitParser::Link6BitParser() :
-	m_nState(0),
-	m_nShift(0)
+	m_nState(0)
+	//m_nShift(0)
 {
 }
 

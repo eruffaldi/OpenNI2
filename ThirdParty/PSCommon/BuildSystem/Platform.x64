@@ -2,4 +2,31 @@
 COMMON_MAK_DIR = $(dir $(lastword $(MAKEFILE_LIST)))
 
 # everything is the same as in x86
-include $(COMMON_MAK_DIR)Platform.x86
+#include $(COMMON_MAK_DIR)Platform.x86
+
+# some defaults
+export GLUT_SUPPORTED=1
+
+ifndef SSE_GENERATION
+	SSE_GENERATION = 3
+endif
+
+ifeq ("$(OSTYPE)","Darwin")
+	# No more i386 in Darwin
+	CFLAGS += -arch x86_64
+	LDFLAGS += -arch x86_64
+	CFLAGS += --std=c++11 -Wno-deprecated
+endif
+
+ifeq ($(SSE_GENERATION), 2)
+	CFLAGS += -msse2
+else
+	ifeq ($(SSE_GENERATION), 3)
+		CFLAGS += -msse3
+		ifeq ($(SSSE3_ENABLED), 1)
+			CFLAGS += -mssse3
+		endif
+	else
+		DUMMY:=($error "Only SSE2 and SSE3 are supported")
+	endif
+endif

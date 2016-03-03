@@ -21,7 +21,7 @@ protected:
 
 private:
 	XnUInt32 m_nState;
-	XnUInt16 m_nShift;
+	//XnUInt16 m_nShift;
 };
 
 }

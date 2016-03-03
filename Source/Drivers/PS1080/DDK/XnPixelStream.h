@@ -132,7 +132,7 @@ private:
 	XnGeneralProperty m_SupportedModes;
 
 	xnl::Array<XnCmosPreset> m_supportedModesData;
-	XnBool m_bAllowCustomResolutions;
+	//UNUSED XnBool m_bAllowCustomResolutions;
 };
 
 #endif //__XN_PIXEL_STREAM_H__

@@ -27,7 +27,7 @@
 //---------------------------------------------------------------------------
 // Static Data
 //---------------------------------------------------------------------------
-static const XnUInt32 INVALID_INPUT_FORMAT = 9999;
+//static const XnUInt32 INVALID_INPUT_FORMAT = 9999;
 // the order in the allowed input formats is the preferred one
 static XnIOImageFormats g_anAllowedRGBFormats[]   = { XN_IO_IMAGE_FORMAT_UNCOMPRESSED_YUV422, XN_IO_IMAGE_FORMAT_YUV422, XN_IO_IMAGE_FORMAT_BAYER, XN_IO_IMAGE_FORMAT_UNCOMPRESSED_BAYER, XN_IO_IMAGE_FORMAT_UNCOMPRESSED_YUYV };
 static XnIOImageFormats g_anAllowedYUVFormats[]   = { XN_IO_IMAGE_FORMAT_UNCOMPRESSED_YUV422, XN_IO_IMAGE_FORMAT_YUV422 };

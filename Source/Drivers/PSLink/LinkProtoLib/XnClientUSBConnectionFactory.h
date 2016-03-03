@@ -41,7 +41,7 @@ public:
 private:
 	XnUInt16 m_nInputConnections;
 	XnUInt16 m_nOutputConnections;
-	XnUInt32 m_nPreControlReceiveSleep;
+	//XnUInt32 m_nPreControlReceiveSleep;
 	XnUInt8 m_nAltInterface;
 
 	ClientUSBControlEndpoint m_controlEndpoint;

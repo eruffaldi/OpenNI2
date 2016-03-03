@@ -598,7 +598,7 @@ int main(int argc, char **argv)
 	config.openDepth = SENSOR_TRY;
 	config.openColor = SENSOR_TRY;
 	config.openIR = SENSOR_TRY;
-	config.register = FALSE;
+	config.registerImage = FALSE;
 
 	for (int i = 1; i < argc; ++i)
 	{
@@ -627,7 +627,7 @@ int main(int argc, char **argv)
 		}
 		else if (strcmp(argv[i], "-register") == 0)
 		{
-			config.register = TRUE;
+			config.registerImage = TRUE;
 		}
 		else if (strcmp(argv[i], "-depth=on") == 0)
 		{

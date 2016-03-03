@@ -18,7 +18,7 @@ ClientUSBConnectionFactory::ClientUSBConnectionFactory(XnUInt16 nInputConnection
 													   XnUInt32 nPreControlReceiveSleep) :
 	m_nInputConnections(nInputConnections),
 	m_nOutputConnections(nOutputConnections),
-	m_nPreControlReceiveSleep(nPreControlReceiveSleep),
+	//m_nPreControlReceiveSleep(nPreControlReceiveSleep),
 	m_nAltInterface(0),
 	m_controlEndpoint(nPreControlReceiveSleep),
 	m_hUSBDevice(NULL),

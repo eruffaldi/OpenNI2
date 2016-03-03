@@ -40,8 +40,8 @@ XnPixelStream::XnPixelStream(const XnChar* csType, const XnChar* csName, XnBool 
 	m_Cropping(XN_STREAM_PROPERTY_CROPPING, "Cropping", &m_CroppingData, sizeof(OniCropping), ReadCroppingFromFileCallback),
 	m_SupportedModesCount(XN_STREAM_PROPERTY_SUPPORT_MODES_COUNT, "SupportedModesCount", 0),
 	m_SupportedModes(XN_STREAM_PROPERTY_SUPPORT_MODES, "SupportedModes"),
-	m_supportedModesData(30),
-	m_bAllowCustomResolutions(bAllowCustomResolutions)
+	m_supportedModesData(30)
+	//m_bAllowCustomResolutions(bAllowCustomResolutions)
 {
 	xnOSMemSet(&m_CroppingData, 0, sizeof(OniCropping));
 	m_SupportedModes.UpdateGetCallback(GetSupportedModesCallback, this);
