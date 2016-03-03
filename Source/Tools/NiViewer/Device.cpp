@@ -191,6 +191,11 @@ int openCommon(openni::Device& device, DeviceConfig config)
 
 	initConstants();
 
+	if(config.register)
+	{
+		toggleImageRegistration();
+	}
+
 	readFrame();
 
 	return 0;

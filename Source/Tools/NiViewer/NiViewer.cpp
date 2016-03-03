@@ -594,11 +594,11 @@ int main(int argc, char **argv)
 {
 	XnBool bChooseDevice = FALSE;
 	const char* uri = NULL;
-
 	DeviceConfig config;
 	config.openDepth = SENSOR_TRY;
 	config.openColor = SENSOR_TRY;
 	config.openIR = SENSOR_TRY;
+	config.register = FALSE;
 
 	for (int i = 1; i < argc; ++i)
 	{
@@ -610,6 +610,7 @@ int main(int argc, char **argv)
 			printf("Options:\n");
 			printf("-h, --help\n");
 			printf("	Shows this help screen and exits\n");
+			printf("-register\n");
 			printf("-devices\n");
 			printf("	Allows to choose the device to open from the list of connected devices\n");
 			printf("-depth=<on|off|try>\n");
@@ -623,6 +624,10 @@ int main(int argc, char **argv)
 		else if (strcmp(argv[i], "-devices") == 0)
 		{
 			bChooseDevice = TRUE;
+		}
+		else if (strcmp(argv[i], "-register") == 0)
+		{
+			config.register = TRUE;
 		}
 		else if (strcmp(argv[i], "-depth=on") == 0)
 		{

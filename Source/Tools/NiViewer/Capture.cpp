@@ -169,8 +169,32 @@ bool isCapturing()
 	return (g_Capture.State != NOT_CAPTURING);
 }
 
+std::string makefilename()
+{
+	  const  char *MON[13]={"*","JAN","FEB","MAR","APR","MAY","JUN",
+            "JUL","AUG","SEP","OCT","NOV","DEC"};
+	char name[255];
+#if (ONI_PLATFORM == ONI_PLATFORM_WIN32)
+    SYSTEMTIME Now;
+    GetLocalTime(&Now);
+    sprintf(name,"%d%s%0d_%02d%02d%02d", Now.wYear, MON[Now.wMonth],
+            Now.wDay, Now.wHour, Now.wMinute, Now.wSecond);
+#else
+    time_t NowS;
+    struct tm *Now;
+    time(&NowS);
+    Now = localtime(&NowS);
+    sprintf(name,"%d%s%0d_%02d%02d%02d", Now->tm_year, MON[1+Now->tm_mon],
+            Now->tm_mday, Now->tm_hour, Now->tm_min, Now->tm_sec);
+
+#endif
+    return name;
+
+}
+
 void captureBrowse(int)
 {
+#if 0
 #if (ONI_PLATFORM == ONI_PLATFORM_WIN32)
     OPENFILENAME ofn  = { 0 };
     ofn.lStructSize   = sizeof(ofn);
@@ -195,8 +219,9 @@ void captureBrowse(int)
 	}
 #else
     // Set capture file to defaults.
-    strcpy(g_Capture.csFileName, "./Captured.oni");
 #endif // ONI_PLATFORM_WIN32
+#endif
+    strcpy(g_Capture.csFileName, ("./Captured" + makefilename() + ".oni").c_str());
 
 	// as we waited for user input, it's probably better to discard first frame (especially if an accumulating
 	// stream is on, like audio).

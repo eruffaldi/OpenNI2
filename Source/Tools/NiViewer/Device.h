@@ -59,6 +59,7 @@ typedef struct
 	SensorOpenType openDepth;
 	SensorOpenType openColor;
 	SensorOpenType openIR;
+	XnBool register;
 } DeviceConfig;
 
 // --------------------------------
